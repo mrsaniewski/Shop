@@ -1,0 +1,15 @@
+
+{% extends "main/base.html" %}
+
+{% block title %}
+<a>My cart:</a>
+{% endblock %}
+
+{% block content %}
+  <ul>
+        {% for product in products_in_cart %}
+            <li>{{ product.name }} - {{ product.price }} zł - {{ product.number }} szt. </li>
+        {% endfor %}
+    </ul>
+  <a>Total Price: {{ total_price }} zł</a>
+{% endblock %}

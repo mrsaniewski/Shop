@@ -1,0 +1,118 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.content ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.content li {
+  float: left;
+}
+
+.content li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.content li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+    <div class="content">
+<ul>
+	<li><a>Shop</a></li>
+	<li><a href="/home" id="index" >Home</a></li>
+	 <div class="dropdown">
+    <button class="dropbtn">Categories
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/tapes">Tapes</a>
+      <a href="/glues">Glues</a>
+      <a href="/grids">Grids</a>
+        <a href="/gloves">Gloves</a>
+
+    </div>
+  </div>
+	<li><a href="/contact">Contact</a></li>
+	<li><a href="/about">About us</a></li>
+	<li><a style="float:right" href="/cart">Cart</a></li>
+	 <div style="float:right" class="dropdown">
+    <button class="dropbtn">My account
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/login">Login</a>
+      <a href="/register">Sign up</a>
+      <a href="#">My orders</a>
+    </div>
+  </div>
+</ul>
+</div>
+</head>
+<body>
+    {% block title %}
+    {% endblock %}
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
+
