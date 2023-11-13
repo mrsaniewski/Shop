@@ -8,8 +8,16 @@
 {% block content %}
   <ul>
         {% for product in products_in_cart %}
-            <li>{{ product.name }} - {{ product.price }} zł - {{ product.number }} szt. </li>
+            <li>{{ product.name }} - {{ product.price }} zł - {{ product.number }} in stock.
+               <form action="{% url 'remove_from_cart' product.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Remove from Cart</button>
+                </form>
+                <p>Number of this item in your cart: {{ product.count_in_cart }}</p>
+
+            </li>
         {% endfor %}
     </ul>
+    <p>Number of all items in your cart: {{ request.session.cart_count }}</p>
   <a>Total Price: {{ total_price }} zł</a>
 {% endblock %}

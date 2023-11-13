@@ -9,11 +9,17 @@ Glues:
     <ul>
         {% for product in products %}
 <li>
-                <a>{{ product.name }} - {{ product.price }} zł - {{ product.number }} szt. </a>
-        <form action="{% url 'add_to_cart' product.id %}" method="post">
+                <a>{{ product.name }} - {{ product.price }} zł -
+                    {% if product.number > 0 %}
+                    {{ product.number }} szt.
+                            <form action="{% url 'add_to_cart' product.id %}" method="post">
             {% csrf_token %}
             <button type="submit">Add to cart</button>
         </form>
+                    {% else %}
+                    <a>Out of stock</a>
+                    {% endif %} </a>
+
 </li>
         {% endfor %}
     </ul>
